@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofra - Ingredient Matcher</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="Frame 1.png" alt="Sofra Logo" class="main-logo">
+        <p>Select your ingredients, We'll handle the menu.</p>
+        <a href="saved.html" class="saved-link">⭐ Saved Recipes</a>
+    </header>
+
+   <!-- The Containers -->
+    <main class="container">
+        <!-- Left Side: The Fridge -->
+        <section class="fridge-section">
+            <div class="selected-area" id="selectedArea">
+                <h3>Currently Selected:</h3>
+                <div id="selectedChips" class="chip-container"></div>
+            </div>
+
+            <!-- Categories -->
+            <div id="categoriesContainer" class="categories-container"></div>
+            
+            <!-- (The button was removed from here!) -->
+        </section>
+
+        <!-- Right Side: The Results -->
+        <section class="results-section">
+            <h2>Available Recipes</h2>
+            <div id="recipeResults" class="recipe-grid">
+                <div class="placeholder-msg">Select your ingredients and click "Find Recipes" to reveal meals.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- NEW: The Button is now outside and below the containers -->
+    <div class="button-wrapper">
+        <button id="findRecipesBtn" class="action-btn">Find Recipes</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+:root {
+    /* Your Limoncello Palette */
+    --barley: #FFF5D0;
+    --naples: #FAD564;
+    --light-olive: #748a73ff;
+    --neptune: #e59f2aff;
+    --rhino: #73866fff;
+    
+    /* Background & Cards */
+    --soft-blue: #9BB8D4; /* Matched from your checkerboard */
+    --card-bg: rgba(255, 255, 255, 0.95); 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    /* Put your actual image name here to get the watercolor texture! */
+    background-image: url('Dream\ Apartment\ Kitchen.jfif'); 
+
+}
+
+header {
+    text-align: center;
+    padding: 1rem 1rem;
+    background-color: var(--card-bg);
+    margin-bottom: 2rem;
+    border-bottom: 5px solid var(--naples);
+    box-shadow: 0 4px 20px rgba(27, 71, 93, 0.15);
+}
+
+.main-logo {
+    width: 280px; /* Adjust this number to make the logo bigger or smaller */
+    max-width: 100%; /* Ensures it shrinks on mobile phones */
+    height: auto; /* Keeps the proportions perfect so it doesn't squish */
+    margin-bottom: 1rem; /* Adds space between the logo and the text below it */
+    display: inline-block; /* Keeps it centered */
+}
+
+
+
+header p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--light-olive);
+}
+
+/* 1. The Main Container (Wider, more gap, and space on top/bottom) */
+.container {
+    display: flex;
+    gap: 3rem;
+    padding: 0 2rem;
+    max-width: 1300px;
+    /* Reduced the bottom margin from 5rem to 2rem so the button isn't too far away */
+    margin: 2rem auto 2rem auto; 
+}
+
+
+/* 2. The Boxes (Taller, with more padding inside to breathe) */
+.fridge-section, .results-section {
+    flex: 1;
+    background: var(--card-bg);
+    padding: 2.5rem; /* Increased internal padding so content has breathing room */
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(27, 71, 93, 0.2);
+    border: 3px solid var(--rhino);
+    
+    /* Made them slightly taller (80% of screen height) so they don't feel squished */
+    max-height: 65vh; 
+    overflow-y: auto; /* Keeps the internal scrolling */
+}
+
+
+/* Add this right below it to make the new scrollbars look beautiful */
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: var(--barley);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--naples);
+    border-radius: 10px;
+    border: 2px solid var(--barley); /* Gives it a nice padded look */
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neptune); /* Turns green when you grab it */
+}
+
+.selected-area {
+    padding-bottom: 1.5rem;
+    border-bottom: 3px dashed var(--neptune);
+}
+
+.selected-area h3, .results-section h2 {
+    color: var(--rhino);
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+/* Unselected Chips */
+.chip {
+    padding: 0.6rem 1.2rem;
+    background-color: var(--barley);
+    color: var(--rhino);
+    border-radius: 8px; /* Sharper edges look more professional */
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+    user-select: none;
+    border: 2px solid var(--naples);
+}
+
+.chip:hover {
+    background-color: var(--naples);
+    transform: translateY(-2px);
+}
+
+/* Selected Chips */
+.chip.selected {
+    background-color: var(--neptune);
+    color: white;
+    border-color: var(--rhino);
+    box-shadow: 0 4px 10px rgba(142, 189, 157, 0.5);
+}
+
+.category {
+    margin-top: 2rem;
+}
+
+.category h4 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--rhino);
+    background: var(--naples);
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    border-radius: 6px;
+}
+
+/* Alternate category heading colors */
+.category:nth-child(even) h4 {
+    background: var(--light-olive);
+    color: white;
+}
+
+.recipe-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.recipe-card {
+    background: white;
+    border: 3px solid var(--rhino);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.2s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(27, 71, 93, 0.15);
+}
+
+.recipe-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 900;
+    color: var(--rhino);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 900;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    border: 2px solid var(--rhino);
+}
+
+.badge.perfect { 
+    background: var(--naples); 
+    color: var(--rhino);
+}
+.badge.good { 
+    background: var(--barley); 
+    color: var(--rhino);
+}
+
+.ingredient-list p {
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+}
+
+.ingredient-list span {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    margin: 0.2rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.ing-have { 
+    background-color: var(--neptune); 
+    color: white; 
+}
+.ing-miss { 
+    background-color: var(--barley); 
+    color: var(--rhino); 
+    border: 1px dashed var(--rhino);
+    opacity: 0.7;
+}
+
+.placeholder-msg {
+    font-weight: 700;
+    color: var(--light-olive);
+    font-size: 1.1rem;
+}
+.button-wrapper {
+    text-align: center;
+    margin-bottom: 5rem; /* Moves the big empty space to below the button */
+    padding: 0 1rem;
+}
+
+/* 3. Update the Button Styles for its new centered location */
+.action-btn {
+    width: 350px; /* Fixed width so it's not stretching across the whole screen */
+    max-width: 100%;
+    padding: 1.2rem;
+    background-color: var(--card-bg);
+    color: var(--rhino);
+    font-size: 1.2rem;
+    font-weight: 900;
+    border: 3px solid var(--rhino);
+    border-radius: 50px; /* Changed to 50px for a premium "pill" shape */
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 10px 30px rgba(27, 71, 93, 0.2); /* Added a nice shadow */
+    transition: all 0.2s ease-in-out;
+}
+
+.action-btn:hover {
+    background-color: var(--neptune);
+    color: white;
+    transform: translateY(-4px); /* Makes it lift up smoothly when hovered */
+    box-shadow: 0 12px 40px rgba(27, 71, 93, 0.35);
+}
+
+.action-btn:active {
+    transform: translateY(0);
+}
+
+/* --- IMAGE & CARD LAYOUT --- */
+.recipe-card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+/* Slightly reduce the image so it fits the new width perfectly */
+.recipe-image {
+    width: 120px; /* Changed from 140px */
+    height: 120px; /* Changed from 140px */
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--rhino);
+    flex-shrink: 0; 
+}
+
+.recipe-content {
+    flex: 1;
+}
+
+/* Mobile Responsiveness for Images */
+@media (max-width: 768px) {
+    .recipe-card {
+        flex-direction: column;
+    }
+    .recipe-image {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+/*NEWWWWWWWW */
+.saved-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-weight: 900;
+    color: var(--rhino);
+    text-decoration: none;
+    border: 2px solid var(--rhino);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    transition: all 0.2s;
+}
+
+.saved-link:hover {
+    background-color: var(--naples);
+}
+
+.detail-image {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid var(--rhino);
+    margin-bottom: 2rem;
+}
+
+.recipe-detail-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.recipe-detail-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 3px solid var(--rhino);
+    box-shadow: 0 10px 40px rgba(27, 71, 93, 0.2);
+}
+
+.detail-content h1 {
+    font-size: 2rem;
+    color: var(--rhino);
+    margin-bottom: 1rem;
+}
+
+.main-ingredient {
+    font-weight: 700;
+    color: var(--rhino);
+    margin-bottom: 1.5rem;
+}
+
+.main-ingredient span {
+    background: var(--naples);
+    padding: 0.2rem 0.8rem;
+    border-radius: 6px;
+}
+
+.note-section {
+    margin: 1.5rem 0;
+}
+
+.note-section textarea {
+    width: 100%;
+    height: 100px;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 2px solid var(--rhino);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--rhino);
+    background: var(--barley);
+    resize: none;
+}
+
+.detail-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.back-btn {
+    margin-bottom: 1.5rem;
+    width: auto;
+    padding: 0.8rem 1.5rem;
+}
